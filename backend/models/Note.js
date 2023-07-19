@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const NotesSchema = new Schema({
+  //user here is like an foriegn key from mongo User model
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
+  },
   title: { type: String, required: true },
   description: { type: String, required: true },
   tag: { type: String, default: "General" },
